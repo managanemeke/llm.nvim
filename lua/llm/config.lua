@@ -12,6 +12,9 @@ else
 end
 
 local temp_dir = vim.env.TMPDIR
+if not temp_dir or temp_dir == "" then
+  temp_dir = uv.os_tmpdir() or vim.fn.stdpath("cache")
+end
 
 M._ = {}
 M._.chat_ui_opts = {
