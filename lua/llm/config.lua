@@ -11,7 +11,7 @@ else
   HOME = os.getenv("USERPROFILE")
 end
 
-local temp_dir = "/tmp"
+local temp_dir = vim.env.TMPDIR
 
 M._ = {}
 M._.chat_ui_opts = {
