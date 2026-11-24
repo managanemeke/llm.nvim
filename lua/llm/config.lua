@@ -11,6 +11,8 @@ else
   HOME = os.getenv("USERPROFILE")
 end
 
+local temp_dir = "/tmp"
+
 M._ = {}
 M._.chat_ui_opts = {
   relative = "editor",
@@ -288,7 +290,7 @@ M.configs = {
   },
 
   history_path = HOME .. "/.local/state/nvim/llm-history",
-  curl_data_cache_path = "/tmp/llm-curl-data/",
+  curl_data_cache_path = vim.fs.joinpath(temp_dir, "llm-curl-data"),
   max_history_files = 15,
   max_history_name_length = 10,
   save_session = true,
