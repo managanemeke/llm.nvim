@@ -212,7 +212,10 @@ function M.GetStreamingOutput(opts)
     if required_params.url ~= nil then
       body.model = required_params.model
 
-      local data_file = conf.configs.curl_data_cache_path .. "/streaming-data"
+      local data_file = vim.fs.joinpath(
+        conf.configs.curl_data_cache_path,
+        "streaming-data"
+      )
       ctx.request_body_file = data_file
       require("llm.common.file_io").SaveFile(data_file, json.encode(body))
 
